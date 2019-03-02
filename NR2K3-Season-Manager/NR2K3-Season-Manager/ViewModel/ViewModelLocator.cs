@@ -43,13 +43,14 @@ namespace NR2K3_Season_Manager.ViewModel
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<LoadSeriesPageViewModel>();
         }
 
         private static void SetupNavigation()
         {
             var navigationService = new FrameNavigationService();
-            navigationService.Configure("LoginView", new Uri("../Views/LoginView.xaml", UriKind.Relative));
-            navigationService.Configure("Notes", new Uri("../Views/NotesView.xaml", UriKind.Relative));
+            navigationService.Configure("LoadSeriesPage", new Uri("../Views/LoadSeriesPage.xaml", UriKind.Relative));
+            //navigationService.Configure("Notes", new Uri("../Views/NotesView.xaml", UriKind.Relative));
 
             SimpleIoc.Default.Register<IFrameNavigationService>(() => navigationService);
         }

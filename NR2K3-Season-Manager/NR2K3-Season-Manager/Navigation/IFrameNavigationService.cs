@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NR2K3_Season_Manager.Navigation
 {
-    interface IFrameNavigationService: INavigationService
+    public interface IFrameNavigationService: INavigationService
     {
         object Parameter { get; }
     }
