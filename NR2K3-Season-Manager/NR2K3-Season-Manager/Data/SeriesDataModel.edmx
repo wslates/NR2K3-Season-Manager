@@ -144,6 +144,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SeriesName" Type="String" Nullable="false" />
           <NavigationProperty Name="Seasons" Relationship="SeriesDataModel.SeasonSeries" FromRole="Series" ToRole="Season" />
+          <Property Name="SeriesLogo" Type="String" Nullable="true" />
+          <Property Name="SanctioningLogo" Type="String" Nullable="true" />
+          <Property Name="SeriesShort" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Season">
           <Key>
@@ -156,6 +159,8 @@
           <NavigationProperty Name="Drivers" Relationship="SeriesDataModel.DriverSeason" FromRole="Season" ToRole="Driver" />
           <NavigationProperty Name="PointsSystem" Relationship="SeriesDataModel.PointsSystemSeason" FromRole="Season" ToRole="PointsSystem" />
           <Property Name="PointsSystemId" Type="Int32" Nullable="false" />
+          <Property Name="Roster" Type="String" Nullable="false" />
+          <Property Name="NR2K3Root" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="SeasonSeries">
           <End Type="SeriesDataModel.Season" Role="Season" Multiplicity="*" />

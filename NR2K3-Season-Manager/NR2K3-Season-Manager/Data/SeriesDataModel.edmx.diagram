@@ -10,8 +10,8 @@
         <EntityTypeShape EntityType="SeriesDataModel.Manufacturer" Width="1.5" PointX="3.375" PointY="0.75" />
         <AssociationConnector Association="SeriesDataModel.ManufacturerTeam" />
         <AssociationConnector Association="SeriesDataModel.TeamDriver" />
-        <EntityTypeShape EntityType="SeriesDataModel.Series" Width="1.5" PointX="9.25" PointY="0.875" />
-        <EntityTypeShape EntityType="SeriesDataModel.Season" Width="1.5" PointX="9.25" PointY="3.125" />
+        <EntityTypeShape EntityType="SeriesDataModel.Series" Width="1.5" PointX="6.25" PointY="0.75" />
+        <EntityTypeShape EntityType="SeriesDataModel.Season" Width="1.5" PointX="9.375" PointY="1.75" />
         <AssociationConnector Association="SeriesDataModel.SeasonSeries" />
         <EntityTypeShape EntityType="SeriesDataModel.Race" Width="1.5" PointX="9.25" PointY="5.875" />
         <AssociationConnector Association="SeriesDataModel.RaceSeason" />
