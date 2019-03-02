@@ -4,11 +4,473 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="SeriesDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="SeriesDataModelTargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="SeriesDataModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="SeriesDataModelStoreContainer">
+    <EntitySet Name="Drivers" EntityType="SeriesDataModel.Store.Drivers" store:Type="Tables" Schema="Database" />
+    <EntitySet Name="Teams" EntityType="SeriesDataModel.Store.Teams" store:Type="Tables" Schema="Database" />
+    <EntitySet Name="Manufacturers" EntityType="SeriesDataModel.Store.Manufacturers" store:Type="Tables" Schema="Database" />
+    <EntitySet Name="Series" EntityType="SeriesDataModel.Store.Series" store:Type="Tables" Schema="Database" />
+    <EntitySet Name="Seasons" EntityType="SeriesDataModel.Store.Seasons" store:Type="Tables" Schema="Database" />
+    <EntitySet Name="Races" EntityType="SeriesDataModel.Store.Races" store:Type="Tables" Schema="Database" />
+    <EntitySet Name="RaceResults" EntityType="SeriesDataModel.Store.RaceResults" store:Type="Tables" Schema="Database" />
+    <EntitySet Name="QualifyingResults" EntityType="SeriesDataModel.Store.QualifyingResults" store:Type="Tables" Schema="Database" />
+    <EntitySet Name="WeekendResults" EntityType="SeriesDataModel.Store.WeekendResults" store:Type="Tables" Schema="Database" />
+    <EntitySet Name="StageResults" EntityType="SeriesDataModel.Store.StageResults" store:Type="Tables" Schema="Database" />
+    <EntitySet Name="PracticeResults" EntityType="SeriesDataModel.Store.PracticeResults" store:Type="Tables" Schema="Database" />
+    <EntitySet Name="PointsSystems" EntityType="SeriesDataModel.Store.PointsSystems" store:Type="Tables" Schema="Database" />
+    <EntitySet Name="Positions" EntityType="SeriesDataModel.Store.Positions" store:Type="Tables" Schema="Database" />
+    <EntitySet Name="PlayoffRounds" EntityType="SeriesDataModel.Store.PlayoffRounds" store:Type="Tables" Schema="Database" />
+    <EntitySet Name="Penalties" EntityType="SeriesDataModel.Store.Penalties" store:Type="Tables" Schema="Database" />
+    <EntitySet Name="PointsResults" EntityType="SeriesDataModel.Store.PointsResults" store:Type="Tables" Schema="Database" />
+    <EntitySet Name="DriverSeason" EntityType="SeriesDataModel.Store.DriverSeason" store:Type="Tables" Schema="Database" />
+    <AssociationSet Name="ManufacturerTeam" Association="SeriesDataModel.Store.ManufacturerTeam">
+      <End Role="Manufacturer" EntitySet="Manufacturers" />
+      <End Role="Team" EntitySet="Teams" />
+    </AssociationSet>
+    <AssociationSet Name="TeamDriver" Association="SeriesDataModel.Store.TeamDriver">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="Driver" EntitySet="Drivers" />
+    </AssociationSet>
+    <AssociationSet Name="SeasonSeries" Association="SeriesDataModel.Store.SeasonSeries">
+      <End Role="Season" EntitySet="Seasons" />
+      <End Role="Series" EntitySet="Series" />
+    </AssociationSet>
+    <AssociationSet Name="RaceSeason" Association="SeriesDataModel.Store.RaceSeason">
+      <End Role="Race" EntitySet="Races" />
+      <End Role="Season" EntitySet="Seasons" />
+    </AssociationSet>
+    <AssociationSet Name="WeekendResultRace" Association="SeriesDataModel.Store.WeekendResultRace">
+      <End Role="WeekendResult" EntitySet="WeekendResults" />
+      <End Role="Race" EntitySet="Races" />
+    </AssociationSet>
+    <AssociationSet Name="WeekendResultQualifyingResult" Association="SeriesDataModel.Store.WeekendResultQualifyingResult">
+      <End Role="WeekendResult" EntitySet="WeekendResults" />
+      <End Role="QualifyingResult" EntitySet="QualifyingResults" />
+    </AssociationSet>
+    <AssociationSet Name="WeekendResultRaceResult" Association="SeriesDataModel.Store.WeekendResultRaceResult">
+      <End Role="WeekendResult" EntitySet="WeekendResults" />
+      <End Role="RaceResult" EntitySet="RaceResults" />
+    </AssociationSet>
+    <AssociationSet Name="WeekendResultDriver" Association="SeriesDataModel.Store.WeekendResultDriver">
+      <End Role="WeekendResult" EntitySet="WeekendResults" />
+      <End Role="Driver" EntitySet="Drivers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriverSeason_Driver" Association="SeriesDataModel.Store.FK_DriverSeason_Driver">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="DriverSeason" EntitySet="DriverSeason" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriverSeason_Season" Association="SeriesDataModel.Store.FK_DriverSeason_Season">
+      <End Role="Season" EntitySet="Seasons" />
+      <End Role="DriverSeason" EntitySet="DriverSeason" />
+    </AssociationSet>
+    <AssociationSet Name="StageResultWeekendResult" Association="SeriesDataModel.Store.StageResultWeekendResult">
+      <End Role="StageResult" EntitySet="StageResults" />
+      <End Role="WeekendResult" EntitySet="WeekendResults" />
+    </AssociationSet>
+    <AssociationSet Name="PracticeResultWeekendResult" Association="SeriesDataModel.Store.PracticeResultWeekendResult">
+      <End Role="PracticeResult" EntitySet="PracticeResults" />
+      <End Role="WeekendResult" EntitySet="WeekendResults" />
+    </AssociationSet>
+    <AssociationSet Name="PointsResultWeekendResult" Association="SeriesDataModel.Store.PointsResultWeekendResult">
+      <End Role="PointsResult" EntitySet="PointsResults" />
+      <End Role="WeekendResult" EntitySet="WeekendResults" />
+    </AssociationSet>
+    <AssociationSet Name="PenaltyPointsResult" Association="SeriesDataModel.Store.PenaltyPointsResult">
+      <End Role="Penalty" EntitySet="Penalties" />
+      <End Role="PointsResult" EntitySet="PointsResults" />
+    </AssociationSet>
+    <AssociationSet Name="PlayoffRoundRace" Association="SeriesDataModel.Store.PlayoffRoundRace">
+      <End Role="PlayoffRound" EntitySet="PlayoffRounds" />
+      <End Role="Race" EntitySet="Races" />
+    </AssociationSet>
+    <AssociationSet Name="PointsSystemPosition" Association="SeriesDataModel.Store.PointsSystemPosition">
+      <End Role="PointsSystem" EntitySet="PointsSystems" />
+      <End Role="Position" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="PointsSystemPlayoffRound" Association="SeriesDataModel.Store.PointsSystemPlayoffRound">
+      <End Role="PointsSystem" EntitySet="PointsSystems" />
+      <End Role="PlayoffRound" EntitySet="PlayoffRounds" />
+    </AssociationSet>
+    <AssociationSet Name="PointsSystemSeason" Association="SeriesDataModel.Store.PointsSystemSeason">
+      <End Role="PointsSystem" EntitySet="PointsSystems" />
+      <End Role="Season" EntitySet="Seasons" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Drivers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" />
+    <Property Name="Sponsor" Type="nvarchar" Nullable="false" />
+    <Property Name="CarNumber" Type="tinyint" Nullable="false" />
+    <Property Name="isRookie" Type="bit" Nullable="false" />
+    <Property Name="Team_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Teams">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeamName" Type="nvarchar" Nullable="false" />
+    <Property Name="Manufacturer_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Manufacturers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ManufacturerName" Type="nvarchar" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Series">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SeriesName" Type="nvarchar" Nullable="false" />
+    <Property Name="SeriesLogo" Type="nvarchar" Nullable="true" />
+    <Property Name="SanctioningLogo" Type="nvarchar" Nullable="true" />
+    <Property Name="SeriesShort" Type="nvarchar" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Seasons">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SeasonNumber" Type="tinyint" Nullable="false" />
+    <Property Name="PointsSystemId" Type="int" Nullable="false" />
+    <Property Name="Roster" Type="nvarchar" Nullable="false" />
+    <Property Name="NR2K3Root" Type="nvarchar" Nullable="false" />
+    <Property Name="Series_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Races">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsExhibition" Type="bit" Nullable="false" />
+    <Property Name="RaceName" Type="nvarchar" Nullable="true" />
+    <Property Name="TrackName" Type="nvarchar" Nullable="false" />
+    <Property Name="RaceDistance" Type="smallint" Nullable="false" />
+    <Property Name="PlayoffRoundId" Type="int" Nullable="true" />
+    <Property Name="Season_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RaceResults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StartingPosition" Type="tinyint" Nullable="false" />
+    <Property Name="FinishingPosition" Type="tinyint" Nullable="false" />
+    <Property Name="LapsLed" Type="smallint" Nullable="false" />
+    <Property Name="TimeOffLeader" Type="real" Nullable="false" />
+    <Property Name="MostLapsLed" Type="bit" Nullable="false" />
+    <Property Name="DNF" Type="bit" Nullable="false" />
+    <Property Name="DNFReason" Type="nvarchar" Nullable="true" />
+  </EntityType>
+  <EntityType Name="QualifyingResults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Time" Type="real" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WeekendResults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Race_Id" Type="int" Nullable="false" />
+    <Property Name="QualifyingResult_Id" Type="int" Nullable="false" />
+    <Property Name="RaceResult_Id" Type="int" Nullable="false" />
+    <Property Name="Driver_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StageResults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FinishingPosition" Type="tinyint" Nullable="true" />
+    <Property Name="WeekendResult_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PracticeResults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsHappyHour" Type="bit" Nullable="false" />
+    <Property Name="Time" Type="real" Nullable="false" />
+    <Property Name="WeekendResult_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PointsSystems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LedLad" Type="smallint" Nullable="false" />
+    <Property Name="MostLapsLed" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Positions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FinishingPosition" Type="tinyint" Nullable="false" />
+    <Property Name="Points" Type="smallint" Nullable="false" />
+    <Property Name="PointsSystemId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlayoffRounds">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PointsSystemId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Penalties">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Points" Type="smallint" Nullable="false" />
+    <Property Name="PointsResult_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PointsResults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RacePointsEarned" Type="smallint" Nullable="false" />
+    <Property Name="RookiePointsEarned" Type="smallint" Nullable="false" />
+    <Property Name="TeamPointsEarned" Type="smallint" Nullable="false" />
+    <Property Name="ManufacturerPointsEarned" Type="smallint" Nullable="false" />
+    <Property Name="WeekendResult_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DriverSeason">
+    <Key>
+      <PropertyRef Name="Drivers_Id" />
+      <PropertyRef Name="Seasons_Id" />
+    </Key>
+    <Property Name="Drivers_Id" Type="int" Nullable="false" />
+    <Property Name="Seasons_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ManufacturerTeam">
+    <End Role="Manufacturer" Type="SeriesDataModel.Store.Manufacturers" Multiplicity="1" />
+    <End Role="Team" Type="SeriesDataModel.Store.Teams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="Manufacturer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TeamDriver">
+    <End Role="Team" Type="SeriesDataModel.Store.Teams" Multiplicity="1" />
+    <End Role="Driver" Type="SeriesDataModel.Store.Drivers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Driver">
+        <PropertyRef Name="Team_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SeasonSeries">
+    <End Role="Season" Type="SeriesDataModel.Store.Seasons" Multiplicity="*" />
+    <End Role="Series" Type="SeriesDataModel.Store.Series" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Series">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Season">
+        <PropertyRef Name="Series_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RaceSeason">
+    <End Role="Race" Type="SeriesDataModel.Store.Races" Multiplicity="*" />
+    <End Role="Season" Type="SeriesDataModel.Store.Seasons" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Season">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Race">
+        <PropertyRef Name="Season_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WeekendResultRace">
+    <End Role="WeekendResult" Type="SeriesDataModel.Store.WeekendResults" Multiplicity="*" />
+    <End Role="Race" Type="SeriesDataModel.Store.Races" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Race">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WeekendResult">
+        <PropertyRef Name="Race_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WeekendResultQualifyingResult">
+    <End Role="WeekendResult" Type="SeriesDataModel.Store.WeekendResults" Multiplicity="*" />
+    <End Role="QualifyingResult" Type="SeriesDataModel.Store.QualifyingResults" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="QualifyingResult">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WeekendResult">
+        <PropertyRef Name="QualifyingResult_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WeekendResultRaceResult">
+    <End Role="WeekendResult" Type="SeriesDataModel.Store.WeekendResults" Multiplicity="*" />
+    <End Role="RaceResult" Type="SeriesDataModel.Store.RaceResults" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="RaceResult">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WeekendResult">
+        <PropertyRef Name="RaceResult_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WeekendResultDriver">
+    <End Role="WeekendResult" Type="SeriesDataModel.Store.WeekendResults" Multiplicity="*" />
+    <End Role="Driver" Type="SeriesDataModel.Store.Drivers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WeekendResult">
+        <PropertyRef Name="Driver_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StageResultWeekendResult">
+    <End Role="StageResult" Type="SeriesDataModel.Store.StageResults" Multiplicity="*" />
+    <End Role="WeekendResult" Type="SeriesDataModel.Store.WeekendResults" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="WeekendResult">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StageResult">
+        <PropertyRef Name="WeekendResult_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PracticeResultWeekendResult">
+    <End Role="PracticeResult" Type="SeriesDataModel.Store.PracticeResults" Multiplicity="*" />
+    <End Role="WeekendResult" Type="SeriesDataModel.Store.WeekendResults" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="WeekendResult">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeResult">
+        <PropertyRef Name="WeekendResult_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PointsResultWeekendResult">
+    <End Role="PointsResult" Type="SeriesDataModel.Store.PointsResults" Multiplicity="*" />
+    <End Role="WeekendResult" Type="SeriesDataModel.Store.WeekendResults" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="WeekendResult">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PointsResult">
+        <PropertyRef Name="WeekendResult_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PenaltyPointsResult">
+    <End Role="Penalty" Type="SeriesDataModel.Store.Penalties" Multiplicity="*" />
+    <End Role="PointsResult" Type="SeriesDataModel.Store.PointsResults" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PointsResult">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Penalty">
+        <PropertyRef Name="PointsResult_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlayoffRoundRace">
+    <End Role="PlayoffRound" Type="SeriesDataModel.Store.PlayoffRounds" Multiplicity="0..1" />
+    <End Role="Race" Type="SeriesDataModel.Store.Races" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PlayoffRound">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Race">
+        <PropertyRef Name="PlayoffRoundId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PointsSystemPosition">
+    <End Role="PointsSystem" Type="SeriesDataModel.Store.PointsSystems" Multiplicity="1" />
+    <End Role="Position" Type="SeriesDataModel.Store.Positions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PointsSystem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="PointsSystemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PointsSystemPlayoffRound">
+    <End Role="PointsSystem" Type="SeriesDataModel.Store.PointsSystems" Multiplicity="1" />
+    <End Role="PlayoffRound" Type="SeriesDataModel.Store.PlayoffRounds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PointsSystem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlayoffRound">
+        <PropertyRef Name="PointsSystemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PointsSystemSeason">
+    <End Role="PointsSystem" Type="SeriesDataModel.Store.PointsSystems" Multiplicity="1" />
+    <End Role="Season" Type="SeriesDataModel.Store.Seasons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PointsSystem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Season">
+        <PropertyRef Name="PointsSystemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriverSeason_Driver">
+    <End Role="Driver" Type="SeriesDataModel.Store.Drivers" Multiplicity="1" />
+    <End Role="DriverSeason" Type="SeriesDataModel.Store.DriverSeason" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DriverSeason">
+        <PropertyRef Name="Drivers_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriverSeason_Season">
+    <End Role="DriverSeason" Type="SeriesDataModel.Store.DriverSeason" Multiplicity="*" />
+    <End Role="Season" Type="SeriesDataModel.Store.Seasons" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Season">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DriverSeason">
+        <PropertyRef Name="Seasons_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="SeriesDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
@@ -374,13 +836,268 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="SeriesDataModel" />
-        <Alias Key="Target" Value="SeriesDataModel.Store" />
-        <EntityContainerMapping CdmEntityContainer="SeriesDataModelContainer" StorageEntityContainer="SeriesDataModelTargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SeriesDataModelStoreContainer" CdmEntityContainer="SeriesDataModelContainer">
+    <EntitySetMapping Name="Drivers">
+      <EntityTypeMapping TypeName="IsTypeOf(SeriesDataModel.Driver)">
+        <MappingFragment StoreEntitySet="Drivers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Sponsor" ColumnName="Sponsor" />
+          <ScalarProperty Name="CarNumber" ColumnName="CarNumber" />
+          <ScalarProperty Name="isRookie" ColumnName="isRookie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="IsTypeOf(SeriesDataModel.Team)">
+        <MappingFragment StoreEntitySet="Teams">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Manufacturers">
+      <EntityTypeMapping TypeName="IsTypeOf(SeriesDataModel.Manufacturer)">
+        <MappingFragment StoreEntitySet="Manufacturers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Series">
+      <EntityTypeMapping TypeName="IsTypeOf(SeriesDataModel.Series)">
+        <MappingFragment StoreEntitySet="Series">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SeriesName" ColumnName="SeriesName" />
+          <ScalarProperty Name="SeriesLogo" ColumnName="SeriesLogo" />
+          <ScalarProperty Name="SanctioningLogo" ColumnName="SanctioningLogo" />
+          <ScalarProperty Name="SeriesShort" ColumnName="SeriesShort" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Seasons">
+      <EntityTypeMapping TypeName="IsTypeOf(SeriesDataModel.Season)">
+        <MappingFragment StoreEntitySet="Seasons">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SeasonNumber" ColumnName="SeasonNumber" />
+          <ScalarProperty Name="PointsSystemId" ColumnName="PointsSystemId" />
+          <ScalarProperty Name="Roster" ColumnName="Roster" />
+          <ScalarProperty Name="NR2K3Root" ColumnName="NR2K3Root" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Races">
+      <EntityTypeMapping TypeName="IsTypeOf(SeriesDataModel.Race)">
+        <MappingFragment StoreEntitySet="Races">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsExhibition" ColumnName="IsExhibition" />
+          <ScalarProperty Name="RaceName" ColumnName="RaceName" />
+          <ScalarProperty Name="TrackName" ColumnName="TrackName" />
+          <ScalarProperty Name="RaceDistance" ColumnName="RaceDistance" />
+          <ScalarProperty Name="PlayoffRoundId" ColumnName="PlayoffRoundId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RaceResults">
+      <EntityTypeMapping TypeName="IsTypeOf(SeriesDataModel.RaceResult)">
+        <MappingFragment StoreEntitySet="RaceResults">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StartingPosition" ColumnName="StartingPosition" />
+          <ScalarProperty Name="FinishingPosition" ColumnName="FinishingPosition" />
+          <ScalarProperty Name="LapsLed" ColumnName="LapsLed" />
+          <ScalarProperty Name="TimeOffLeader" ColumnName="TimeOffLeader" />
+          <ScalarProperty Name="MostLapsLed" ColumnName="MostLapsLed" />
+          <ScalarProperty Name="DNF" ColumnName="DNF" />
+          <ScalarProperty Name="DNFReason" ColumnName="DNFReason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QualifyingResults">
+      <EntityTypeMapping TypeName="IsTypeOf(SeriesDataModel.QualifyingResult)">
+        <MappingFragment StoreEntitySet="QualifyingResults">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WeekendResults">
+      <EntityTypeMapping TypeName="IsTypeOf(SeriesDataModel.WeekendResult)">
+        <MappingFragment StoreEntitySet="WeekendResults">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StageResults">
+      <EntityTypeMapping TypeName="IsTypeOf(SeriesDataModel.StageResult)">
+        <MappingFragment StoreEntitySet="StageResults">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FinishingPosition" ColumnName="FinishingPosition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PracticeResults">
+      <EntityTypeMapping TypeName="IsTypeOf(SeriesDataModel.PracticeResult)">
+        <MappingFragment StoreEntitySet="PracticeResults">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsHappyHour" ColumnName="IsHappyHour" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PointsSystems">
+      <EntityTypeMapping TypeName="IsTypeOf(SeriesDataModel.PointsSystem)">
+        <MappingFragment StoreEntitySet="PointsSystems">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LedLad" ColumnName="LedLad" />
+          <ScalarProperty Name="MostLapsLed" ColumnName="MostLapsLed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Positions">
+      <EntityTypeMapping TypeName="IsTypeOf(SeriesDataModel.Position)">
+        <MappingFragment StoreEntitySet="Positions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FinishingPosition" ColumnName="FinishingPosition" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="PointsSystemId" ColumnName="PointsSystemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlayoffRounds">
+      <EntityTypeMapping TypeName="IsTypeOf(SeriesDataModel.PlayoffRound)">
+        <MappingFragment StoreEntitySet="PlayoffRounds">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PointsSystemId" ColumnName="PointsSystemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Penalties">
+      <EntityTypeMapping TypeName="IsTypeOf(SeriesDataModel.Penalty)">
+        <MappingFragment StoreEntitySet="Penalties">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PointsResults">
+      <EntityTypeMapping TypeName="IsTypeOf(SeriesDataModel.PointsResult)">
+        <MappingFragment StoreEntitySet="PointsResults">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RacePointsEarned" ColumnName="RacePointsEarned" />
+          <ScalarProperty Name="RookiePointsEarned" ColumnName="RookiePointsEarned" />
+          <ScalarProperty Name="TeamPointsEarned" ColumnName="TeamPointsEarned" />
+          <ScalarProperty Name="ManufacturerPointsEarned" ColumnName="ManufacturerPointsEarned" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ManufacturerTeam" TypeName="SeriesDataModel.ManufacturerTeam" StoreEntitySet="Teams">
+      <EndProperty Name="Manufacturer">
+        <ScalarProperty Name="Id" ColumnName="Manufacturer_Id" />
+      </EndProperty>
+      <EndProperty Name="Team">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeamDriver" TypeName="SeriesDataModel.TeamDriver" StoreEntitySet="Drivers">
+      <EndProperty Name="Team">
+        <ScalarProperty Name="Id" ColumnName="Team_Id" />
+      </EndProperty>
+      <EndProperty Name="Driver">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SeasonSeries" TypeName="SeriesDataModel.SeasonSeries" StoreEntitySet="Seasons">
+      <EndProperty Name="Series">
+        <ScalarProperty Name="Id" ColumnName="Series_Id" />
+      </EndProperty>
+      <EndProperty Name="Season">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RaceSeason" TypeName="SeriesDataModel.RaceSeason" StoreEntitySet="Races">
+      <EndProperty Name="Season">
+        <ScalarProperty Name="Id" ColumnName="Season_Id" />
+      </EndProperty>
+      <EndProperty Name="Race">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="WeekendResultRace" TypeName="SeriesDataModel.WeekendResultRace" StoreEntitySet="WeekendResults">
+      <EndProperty Name="Race">
+        <ScalarProperty Name="Id" ColumnName="Race_Id" />
+      </EndProperty>
+      <EndProperty Name="WeekendResult">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="WeekendResultQualifyingResult" TypeName="SeriesDataModel.WeekendResultQualifyingResult" StoreEntitySet="WeekendResults">
+      <EndProperty Name="QualifyingResult">
+        <ScalarProperty Name="Id" ColumnName="QualifyingResult_Id" />
+      </EndProperty>
+      <EndProperty Name="WeekendResult">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="WeekendResultRaceResult" TypeName="SeriesDataModel.WeekendResultRaceResult" StoreEntitySet="WeekendResults">
+      <EndProperty Name="RaceResult">
+        <ScalarProperty Name="Id" ColumnName="RaceResult_Id" />
+      </EndProperty>
+      <EndProperty Name="WeekendResult">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="WeekendResultDriver" TypeName="SeriesDataModel.WeekendResultDriver" StoreEntitySet="WeekendResults">
+      <EndProperty Name="Driver">
+        <ScalarProperty Name="Id" ColumnName="Driver_Id" />
+      </EndProperty>
+      <EndProperty Name="WeekendResult">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DriverSeason" TypeName="SeriesDataModel.DriverSeason" StoreEntitySet="DriverSeason">
+      <EndProperty Name="Driver">
+        <ScalarProperty Name="Id" ColumnName="Drivers_Id" />
+      </EndProperty>
+      <EndProperty Name="Season">
+        <ScalarProperty Name="Id" ColumnName="Seasons_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StageResultWeekendResult" TypeName="SeriesDataModel.StageResultWeekendResult" StoreEntitySet="StageResults">
+      <EndProperty Name="WeekendResult">
+        <ScalarProperty Name="Id" ColumnName="WeekendResult_Id" />
+      </EndProperty>
+      <EndProperty Name="StageResult">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PracticeResultWeekendResult" TypeName="SeriesDataModel.PracticeResultWeekendResult" StoreEntitySet="PracticeResults">
+      <EndProperty Name="WeekendResult">
+        <ScalarProperty Name="Id" ColumnName="WeekendResult_Id" />
+      </EndProperty>
+      <EndProperty Name="PracticeResult">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PointsResultWeekendResult" TypeName="SeriesDataModel.PointsResultWeekendResult" StoreEntitySet="PointsResults">
+      <EndProperty Name="WeekendResult">
+        <ScalarProperty Name="Id" ColumnName="WeekendResult_Id" />
+      </EndProperty>
+      <EndProperty Name="PointsResult">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PenaltyPointsResult" TypeName="SeriesDataModel.PenaltyPointsResult" StoreEntitySet="Penalties">
+      <EndProperty Name="PointsResult">
+        <ScalarProperty Name="Id" ColumnName="PointsResult_Id" />
+      </EndProperty>
+      <EndProperty Name="Penalty">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -394,6 +1111,8 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="Database" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
