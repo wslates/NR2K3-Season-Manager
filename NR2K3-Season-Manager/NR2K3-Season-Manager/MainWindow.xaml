@@ -3,20 +3,33 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:NR2K3_Season_Manager"
-          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:ignore="http://www.galasoft.ch/ignore"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        TextElement.FontWeight="Regular"
-        TextElement.FontSize="13"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}">
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <materialDesign:Card Padding="32" Margin="16">
-            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">My First Material Design App</TextBlock>
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"        mc:Ignorable="d ignore"
+        Height="900"
+        Width="900"
+        Title="NR2K3 Season Manager"
+        >
+
+
+
+    <Grid x:Name="LayoutRoot">
+        <materialDesign:ColorZone Mode="Accent" Padding="16">
+            <StackPanel Orientation="Horizontal">
+                <ToggleButton Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
+                <TextBlock VerticalAlignment="Center" Margin="16 0 0 0">NR2003 Season Manager</TextBlock>
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <materialDesign:Card Padding="32" Margin="10,190,22,0">
+            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="Load Series"/>
         </materialDesign:Card>
+        <Button x:Name="button" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Content="Button" HorizontalAlignment="Left" Margin="383,474,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </Window>

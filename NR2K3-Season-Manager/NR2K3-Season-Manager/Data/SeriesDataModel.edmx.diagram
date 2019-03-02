@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="45b93dc784384729943a2efad24f299d" Name="Diagram1" >
+        <EntityTypeShape EntityType="SeriesDataModel.Driver" Width="1.5" PointX="0.75" PointY="3.375" />
+        <EntityTypeShape EntityType="SeriesDataModel.Team" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SeriesDataModel.Manufacturer" Width="1.5" PointX="3.375" PointY="0.75" />
+        <AssociationConnector Association="SeriesDataModel.ManufacturerTeam" />
+        <AssociationConnector Association="SeriesDataModel.TeamDriver" />
+        <EntityTypeShape EntityType="SeriesDataModel.Series" Width="1.5" PointX="9.25" PointY="0.875" />
+        <EntityTypeShape EntityType="SeriesDataModel.Season" Width="1.5" PointX="9.25" PointY="3.125" />
+        <AssociationConnector Association="SeriesDataModel.SeasonSeries" />
+        <EntityTypeShape EntityType="SeriesDataModel.Race" Width="1.5" PointX="9.25" PointY="5.875" />
+        <AssociationConnector Association="SeriesDataModel.RaceSeason" />
+        <EntityTypeShape EntityType="SeriesDataModel.RaceResult" Width="1.5" PointX="6.25" PointY="11.5" />
+        <EntityTypeShape EntityType="SeriesDataModel.QualifyingResult" Width="1.5" PointX="9.25" PointY="11.5" />
+        <EntityTypeShape EntityType="SeriesDataModel.WeekendResult" Width="1.5" PointX="6.125" PointY="8.375" />
+        <AssociationConnector Association="SeriesDataModel.WeekendResultRace" />
+        <AssociationConnector Association="SeriesDataModel.WeekendResultQualifyingResult" />
+        <AssociationConnector Association="SeriesDataModel.WeekendResultRaceResult" />
+        <AssociationConnector Association="SeriesDataModel.WeekendResultDriver" />
+        <AssociationConnector Association="SeriesDataModel.DriverSeason" />
+        <EntityTypeShape EntityType="SeriesDataModel.StageResult" Width="1.5" PointX="3.125" PointY="11.375" />
+        <AssociationConnector Association="SeriesDataModel.StageResultWeekendResult" />
+        <EntityTypeShape EntityType="SeriesDataModel.PracticeResult" Width="1.5" PointX="2.875" PointY="8.75" />
+        <AssociationConnector Association="SeriesDataModel.PracticeResultWeekendResult" />
+        <EntityTypeShape EntityType="SeriesDataModel.PointsSystem" Width="1.5" PointX="12.25" PointY="2.375" />
+        <EntityTypeShape EntityType="SeriesDataModel.Position" Width="1.5" PointX="14.375" PointY="3.125" />
+        <EntityTypeShape EntityType="SeriesDataModel.PlayoffRound" Width="1.5" PointX="12.25" PointY="4.875" />
+        <EntityTypeShape EntityType="SeriesDataModel.Penalty" Width="1.5" PointX="4.75" PointY="6.125" />
+        <EntityTypeShape EntityType="SeriesDataModel.PointsResult" Width="1.5" PointX="2.875" PointY="6.125" />
+        <AssociationConnector Association="SeriesDataModel.PointsResultWeekendResult" />
+        <AssociationConnector Association="SeriesDataModel.PenaltyPointsResult" />
+        <AssociationConnector Association="SeriesDataModel.PlayoffRoundRace" />
+        <AssociationConnector Association="SeriesDataModel.PointsSystemPosition" />
+        <AssociationConnector Association="SeriesDataModel.PointsSystemPlayoffRound" />
+        <AssociationConnector Association="SeriesDataModel.PointsSystemSeason" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

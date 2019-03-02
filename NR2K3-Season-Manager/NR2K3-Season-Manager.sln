@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NR2K3-Season-Manager", "NR2K3-Season-Manager\NR2K3-Season-Manager.csproj", "{D13758AE-1812-4640-97BC-C5640E9B01ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NR2K3-Season-Manager", "NR2K3-Season-Manager\NR2K3-Season-Manager.csproj", "{6E497675-E2F3-4B21-9765-D73C58C31F42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D13758AE-1812-4640-97BC-C5640E9B01ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D13758AE-1812-4640-97BC-C5640E9B01ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D13758AE-1812-4640-97BC-C5640E9B01ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D13758AE-1812-4640-97BC-C5640E9B01ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E497675-E2F3-4B21-9765-D73C58C31F42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E497675-E2F3-4B21-9765-D73C58C31F42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E497675-E2F3-4B21-9765-D73C58C31F42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E497675-E2F3-4B21-9765-D73C58C31F42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1D170EFE-E967-4A64-B7D0-6434160C9F37}
+		SolutionGuid = {CF13E345-35AC-4C1D-8D4B-D1CC1F8341A2}
 	EndGlobalSection
 EndGlobal
