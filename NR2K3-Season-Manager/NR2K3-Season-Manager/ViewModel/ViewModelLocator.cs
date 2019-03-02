@@ -13,6 +13,8 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using NR2K3_Season_Manager.Model;
+using NR2K3_Season_Manager.Navigation;
+using System;
 
 namespace NR2K3_Season_Manager.ViewModel
 {
@@ -29,6 +31,8 @@ namespace NR2K3_Season_Manager.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
+            SetupNavigation();
+
             if (ViewModelBase.IsInDesignModeStatic)
             {
                 SimpleIoc.Default.Register<IDataService, Design.DesignDataService>();
@@ -39,6 +43,15 @@ namespace NR2K3_Season_Manager.ViewModel
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+        }
+
+        private static void SetupNavigation()
+        {
+            var navigationService = new FrameNavigationService();
+            navigationService.Configure("LoginView", new Uri("../Views/LoginView.xaml", UriKind.Relative));
+            navigationService.Configure("Notes", new Uri("../Views/NotesView.xaml", UriKind.Relative));
+
+            SimpleIoc.Default.Register<IFrameNavigationService>(() => navigationService);
         }
 
         /// <summary>
