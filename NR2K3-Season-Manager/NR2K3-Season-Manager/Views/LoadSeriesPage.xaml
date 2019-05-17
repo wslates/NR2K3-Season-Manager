@@ -1,0 +1,22 @@
+﻿<Page x:Class="NR2K3_Season_Manager.Views.LoadSeriesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NR2K3_Season_Manager.Views"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="355" d:DesignWidth="760"
+      Title="LoadSeriesPage"
+      DataContext="{Binding Path=LoadSeries, Source={StaticResource Locator}}"
+      ShowsNavigationUI="False">
+
+    <Grid x:Name="LayoutRoot">
+        <Button Style="{DynamicResource MaterialDesignFloatingActionAccentButton}" Margin="671,26,33,273" Command="{Binding NewSeriesCommand, Mode=OneWay}">
+            <materialDesign:PackIcon
+                Kind="Add"
+                Width="25"
+                Height="25"/>
+        </Button>
+    </Grid>
+</Page>
