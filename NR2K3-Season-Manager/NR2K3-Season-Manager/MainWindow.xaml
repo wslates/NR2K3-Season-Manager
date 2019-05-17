@@ -14,8 +14,8 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"        mc:Ignorable="d ignore"
-        Height="900"
-        Width="900"
+        Height="500"
+        Width="800"
         Title="NR2K3 Season Manager"
         DataContext="{Binding Main, Source={StaticResource Locator}}" >
 
@@ -26,7 +26,12 @@
             <command:EventToCommand Command="{Binding LoadedCommand, Mode=OneWay}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Grid>
-        <Frame x:Name="MainFrame" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+    <Grid x:Name="LayoutRoot">
+        <materialDesign:ColorZone Mode="Accent" Padding="16">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" FontSize="20">NR2003 Season Manager</TextBlock>
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <Frame x:Name="currentDisplay" Margin="0,56,0,0" NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </Grid>
 </Window>

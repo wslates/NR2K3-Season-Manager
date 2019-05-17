@@ -35,6 +35,7 @@ namespace NR2K3_Season_Manager.Navigation
                 OnPropertyChanged("CurrentPageKey");
             }
         }
+
         public object Parameter { get; private set; }
         #endregion
         #region Ctors and Methods
@@ -65,7 +66,7 @@ namespace NR2K3_Season_Manager.Navigation
                     throw new ArgumentException(string.Format("No such page: {0} ", pageKey), "pageKey");
                 }
 
-                var frame = GetDescendantFromName(Application.Current.MainWindow, "MainFrame") as Frame;
+                var frame = GetDescendantFromName(Application.Current.MainWindow, "currentDisplay") as Frame;
 
                 if (frame != null)
                 {
@@ -114,6 +115,7 @@ namespace NR2K3_Season_Manager.Navigation
                     frameworkElement = GetDescendantFromName(frameworkElement, name);
                     if (frameworkElement != null)
                     {
+
                         return frameworkElement;
                     }
                 }
