@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight.CommandWpf;
+using System.Windows.Controls;
 
 namespace NR2K3_Season_Manager.ViewModel
 {
@@ -27,6 +28,7 @@ namespace NR2K3_Season_Manager.ViewModel
         public RelayCommand NR2K3RootCommand { get; private set; }
         public RelayCommand CancelCommand { get; private set; }
 
+        public RelayCommand CreateCommand { get; private set; }
         public string SeriesName
         {
             get
@@ -112,6 +114,7 @@ namespace NR2K3_Season_Manager.ViewModel
             LoadNewSeriesCommand = new RelayCommand(LoadNewSeriesCommandAction);
             NR2K3RootCommand = new RelayCommand(NR2K3RootCommandAction);
             CancelCommand = new RelayCommand(CancelCommandAction);
+            CreateCommand = new RelayCommand(CreateCommandAction);
 
         }
 
@@ -161,13 +164,11 @@ namespace NR2K3_Season_Manager.ViewModel
         /// </summary>
         public void LoadNewSeriesCommandAction()
         {
-            String path = LoadImage();
+            string path = LoadImage();
 
             if (null != path)
             {
                 SeriesLogo= path;
-                string[] filePath = path.Split('\\');
-                SeriesLogo = filePath[filePath.Length - 1];
             }
         }
 
@@ -176,19 +177,31 @@ namespace NR2K3_Season_Manager.ViewModel
         /// </summary>
         public void LoadNewSanctioningCommandAction()
         {
-            String path = LoadImage();
+            string path = LoadImage();
 
             if (null != path)
             {
                 SanctioningLogo = path;
-                string[] filePath = path.Split('\\');
-                SanctioningLogo= filePath[filePath.Length - 1];
             }
         }
 
         public void CancelCommandAction()
         {
             _navigationService.NavigateTo("LoadSeriesPage");
+        }
+
+        public async void CreateCommandAction()
+        {
+            if (String.IsNullOrWhiteSpace(_seriesName) || String.IsNullOrWhiteSpace(_seriesShort) || String.IsNullOrWhiteSpace(_sanctioningBody))
+            {
+                var dialogContent = new TextBlock
+                {
+                    Text = "Please enter all required inputs!",
+                    Margin = new System.Windows.Thickness(20)
+                };
+                await MaterialDesignThemes.Wpf.DialogHost.Show(dialogContent);
+            }
+
         }
 
     }

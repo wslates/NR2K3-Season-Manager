@@ -90,67 +90,67 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Data\Driver.cs">
+    <Compile Include="Model\Driver.cs">
       <DependentUpon>SeriesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Manufacturer.cs">
+    <Compile Include="Model\Manufacturer.cs">
       <DependentUpon>SeriesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Penalty.cs">
+    <Compile Include="Model\Penalty.cs">
       <DependentUpon>SeriesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\PlayoffRound.cs">
+    <Compile Include="Model\PlayoffRound.cs">
       <DependentUpon>SeriesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\PointsResult.cs">
+    <Compile Include="Model\PointsResult.cs">
       <DependentUpon>SeriesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\PointsSystem.cs">
+    <Compile Include="Model\PointsSystem.cs">
       <DependentUpon>SeriesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Position.cs">
+    <Compile Include="Model\Position.cs">
       <DependentUpon>SeriesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\PracticeResult.cs">
+    <Compile Include="Model\PracticeResult.cs">
       <DependentUpon>SeriesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\QualifyingResult.cs">
+    <Compile Include="Model\QualifyingResult.cs">
       <DependentUpon>SeriesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Race.cs">
+    <Compile Include="Model\Race.cs">
       <DependentUpon>SeriesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\RaceResult.cs">
+    <Compile Include="Model\RaceResult.cs">
       <DependentUpon>SeriesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Season.cs">
+    <Compile Include="Model\Season.cs">
       <DependentUpon>SeriesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Series.cs">
+    <Compile Include="Model\Series.cs">
       <DependentUpon>SeriesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\SeriesDataModel.Context.cs">
+    <Compile Include="Model\SeriesDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SeriesDataModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\SeriesDataModel.cs">
+    <Compile Include="Model\SeriesDataModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SeriesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\SeriesDataModel.Designer.cs">
+    <Compile Include="Model\SeriesDataModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SeriesDataModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Data\StageResult.cs">
+    <Compile Include="Model\StageResult.cs">
       <DependentUpon>SeriesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Team.cs">
+    <Compile Include="Model\Team.cs">
       <DependentUpon>SeriesDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\WeekendResult.cs">
+    <Compile Include="Model\WeekendResult.cs">
       <DependentUpon>SeriesDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Design\DesignDataService.cs" />
@@ -159,6 +159,7 @@
     <Compile Include="Model\IDataService.cs" />
     <Compile Include="Navigation\FrameNavigationService.cs" />
     <Compile Include="Navigation\IFrameNavigationService.cs" />
+    <Compile Include="ValidationRules\NotEmptyValidationRule.cs" />
     <Compile Include="ViewModel\LoadSeriesPageViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NewEditSeriesViewModel.cs" />
@@ -212,11 +213,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Data\SeriesDataModel.edmx">
+    <EntityDeploy Include="Model\SeriesDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SeriesDataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Data\SeriesDataModel.edmx.diagram">
+    <None Include="Model\SeriesDataModel.edmx.diagram">
       <DependentUpon>SeriesDataModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -230,13 +231,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\SeriesDataModel.Context.tt">
+    <Content Include="Model\SeriesDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SeriesDataModel.Context.cs</LastGenOutput>
       <DependentUpon>SeriesDataModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Data\SeriesDataModel.edmx.sql" />
-    <Content Include="Data\SeriesDataModel.tt">
+    <Content Include="Model\SeriesDataModel.edmx.sql" />
+    <Content Include="Model\SeriesDataModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SeriesDataModel.cs</LastGenOutput>
       <DependentUpon>SeriesDataModel.edmx</DependentUpon>
@@ -245,6 +246,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
