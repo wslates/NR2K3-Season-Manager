@@ -187,6 +187,7 @@ namespace NR2K3_Season_Manager.ViewModel
 
         public void CancelCommandAction()
         {
+            Clear();
             _navigationService.NavigateTo("LoadSeriesPage");
         }
 
@@ -200,8 +201,20 @@ namespace NR2K3_Season_Manager.ViewModel
                     Margin = new System.Windows.Thickness(20)
                 };
                 await MaterialDesignThemes.Wpf.DialogHost.Show(dialogContent);
+            } else
+            {
+                Clear();
             }
 
+        }
+
+        private void Clear()
+        {
+            SeriesName = null;
+            SeriesShort = null;
+            SanctioningBody = null;
+            SeriesLogo = null;
+            SanctioningLogo = null;
         }
 
     }
