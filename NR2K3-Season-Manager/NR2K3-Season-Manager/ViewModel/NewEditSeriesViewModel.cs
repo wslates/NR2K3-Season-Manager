@@ -161,13 +161,11 @@ namespace NR2K3_Season_Manager.ViewModel
         /// </summary>
         public void LoadNewSeriesCommandAction()
         {
-            String path = LoadImage();
+            string path = LoadImage();
 
             if (null != path)
             {
                 SeriesLogo= path;
-                string[] filePath = path.Split('\\');
-                SeriesLogo = filePath[filePath.Length - 1];
             }
         }
 
@@ -176,19 +174,22 @@ namespace NR2K3_Season_Manager.ViewModel
         /// </summary>
         public void LoadNewSanctioningCommandAction()
         {
-            String path = LoadImage();
+            string path = LoadImage();
 
             if (null != path)
             {
                 SanctioningLogo = path;
-                string[] filePath = path.Split('\\');
-                SanctioningLogo= filePath[filePath.Length - 1];
             }
         }
 
         public void CancelCommandAction()
         {
             _navigationService.NavigateTo("LoadSeriesPage");
+        }
+
+        public void SaveCommandAction()
+        {
+
         }
 
     }

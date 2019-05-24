@@ -1,28 +1,143 @@
-﻿<Page x:Class="NR2K3_Season_Manager.Views.NewSeriesPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:NR2K3_Season_Manager.Views"
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      mc:Ignorable="d" 
-      d:DesignHeight="355" d:DesignWidth="760"
-      Title="NewSeriesPage"
-      ShowsNavigationUI="False"
-      DataContext="{Binding NewEditSeries, Source={StaticResource Locator}}">
+﻿<Page
+    x:Class="NR2K3_Season_Manager.Views.NewSeriesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NR2K3_Season_Manager.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="NewSeriesPage"
+    d:DesignHeight="355"
+    d:DesignWidth="760"
+    DataContext="{Binding NewEditSeries, Source={StaticResource Locator}}"
+    ShowsNavigationUI="False"
+    mc:Ignorable="d">
 
 
-    <Grid Background="White" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-        <TextBlock Style="{StaticResource MaterialDesignHeadlineTextBlock}" Margin="10,10,10,305"><Run Text="Create or Edit a Series"/></TextBlock>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="30" Margin="10,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="740" materialDesign:HintAssist.Hint="Full Series Name (e.g. 'Monster Energy NASCAR Cup Series')" FontSize="16" Text="{Binding SeriesName, Mode=OneWay}"/>
-        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="30" Margin="10,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="740" materialDesign:HintAssist.Hint="Short Series Name (e.g. 'MENCS')" FontSize="16" Text="{Binding SeriesShort, Mode=OneWay}"/>
-        <TextBox x:Name="textBox_Copy1" HorizontalAlignment="Left" Height="30" Margin="10,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="740" materialDesign:HintAssist.Hint="Sanctioning Body Name (e.g. 'NASCAR')" FontSize="16" Text="{Binding SanctioningBody}"/>
-        <TextBox x:Name="textBox_Copy2" HorizontalAlignment="Left" Height="30" Margin="10,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="612" materialDesign:HintAssist.Hint="Series Logo" IsEnabled="False" FontSize="16" Text="{Binding SeriesLogo}"/>
-        <TextBox x:Name="textBox_Copy3" HorizontalAlignment="Left" Height="30" Margin="10,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="612" materialDesign:HintAssist.Hint="Sanctioning Body Logo" IsEnabled="False" FontSize="16" Text="{Binding SanctioningLogo}"/>
-        <Button x:Name="button" Content="Load" HorizontalAlignment="Left" Margin="627,162,0,0" VerticalAlignment="Top" Width="123" Height="30" FontSize="16" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Command="{Binding LoadNewSeriesCommand}"/>
-        <Button x:Name="button1" Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Margin="627,313,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Height="30"/>
-        <Button x:Name="button1_Copy" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Margin="499,313,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Height="30" Command="{Binding CancelCommand, Mode=OneWay}"/>
-        <Button x:Name="button_Copy" Content="Load" HorizontalAlignment="Left" Margin="627,197,0,0" VerticalAlignment="Top" Width="123" Height="30" FontSize="16" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Command="{Binding LoadNewSanctioningCommand}"/>
+    <Grid
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch"
+        Background="White">
+        <TextBlock Margin="10,10,10,305" Style="{StaticResource MaterialDesignHeadlineTextBlock}"><Run Text="Create or Edit a Series" /></TextBlock>
+        <TextBox
+            x:Name="SeriesNameTextbox"
+            Width="740"
+            Height="30"
+            Margin="10,50,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Full Series Name (e.g. 'Monster Energy NASCAR Cup Series')"
+            FontSize="16"
+            TextWrapping="Wrap">
+            <TextBox.Text>
+                <Binding Path="SeriesName">
+                    <Binding.ValidationRules>
+                        <validate:NotEmptyValidationRule xmlns:validate="clr-namespace:NR2K3_Season_Manager.ValidationRules" ValidatesOnTargetUpdated="True" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox
+            x:Name="SeriesShortTextBox"
+            Width="740"
+            Height="30"
+            Margin="10,94,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Short Series Name (e.g. 'MENCS')"
+            FontSize="16"
+            TextWrapping="Wrap">
+            <TextBox.Text>
+                <Binding Path="SeriesShort">
+                    <Binding.ValidationRules>
+                        <validate:NotEmptyValidationRule xmlns:validate="clr-namespace:NR2K3_Season_Manager.ValidationRules" ValidatesOnTargetUpdated="True" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox
+            x:Name="SanctioningBodyTextBox"
+            Width="740"
+            Height="30"
+            Margin="10,139,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Sanctioning Body Name (e.g. 'NASCAR')"
+            FontSize="16"
+            TextWrapping="Wrap">
+            <TextBox.Text>
+                <Binding Path="SanctioningBody">
+                    <Binding.ValidationRules>
+                        <validate:NotEmptyValidationRule xmlns:validate="clr-namespace:NR2K3_Season_Manager.ValidationRules" ValidatesOnTargetUpdated="True" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox
+            x:Name="textBox_Copy2"
+            Width="612"
+            Height="30"
+            Margin="10,185,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Series Logo"
+            FontSize="16"
+            IsEnabled="False"
+            Text="{Binding SeriesLogo}"
+            TextWrapping="Wrap" />
+        <TextBox
+            x:Name="textBox_Copy3"
+            Width="612"
+            Height="30"
+            Margin="10,220,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Sanctioning Body Logo"
+            FontSize="16"
+            IsEnabled="False"
+            Text="{Binding SanctioningLogo}"
+            TextWrapping="Wrap" />
+        <Button
+            x:Name="button"
+            Width="123"
+            Height="30"
+            Margin="627,185,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding LoadNewSeriesCommand}"
+            Content="Load"
+            FontSize="16"
+            Style="{DynamicResource MaterialDesignRaisedAccentButton}" />
+        <Button
+            x:Name="button1"
+            Width="123"
+            Height="30"
+            Margin="627,313,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Create"
+            Style="{DynamicResource MaterialDesignRaisedAccentButton}" />
+        <Button
+            x:Name="button1_Copy"
+            Width="123"
+            Height="30"
+            Margin="499,313,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding CancelCommand, Mode=OneWay}"
+            Content="Cancel"
+            Style="{DynamicResource MaterialDesignRaisedAccentButton}" />
+        <Button
+            x:Name="button_Copy"
+            Width="123"
+            Height="30"
+            Margin="627,220,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding LoadNewSanctioningCommand}"
+            Content="Load"
+            FontSize="16"
+            Style="{DynamicResource MaterialDesignRaisedAccentButton}" />
 
     </Grid>
 </Page>

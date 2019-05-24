@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\wesle\Documents\GitHub\NR2K3-Season-Manager\NR2K3-Season-Manager\NR2K3-Season-Manager\Data\SeriesDataModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\wesle\Documents\GitHub\NR2K3-Season-Manager\NR2K3-Season-Manager\NR2K3-Season-Manager\Model\SeriesDataModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
