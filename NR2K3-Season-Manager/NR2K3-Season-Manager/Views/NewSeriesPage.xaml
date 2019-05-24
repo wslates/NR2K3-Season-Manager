@@ -89,7 +89,7 @@
             x:Name="textBox_Copy3"
             Width="612"
             Height="30"
-            Margin="10,220,0,0"
+            Margin="10,229,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             materialDesign:HintAssist.Hint="Sanctioning Body Logo"
@@ -109,12 +109,13 @@
             FontSize="16"
             Style="{DynamicResource MaterialDesignRaisedAccentButton}" />
         <Button
-            x:Name="button1"
+            x:Name="CreateButton"
             Width="123"
             Height="30"
             Margin="627,313,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            Command="{Binding CreateCommand, Mode=OneWay}"
             Content="Create"
             Style="{DynamicResource MaterialDesignRaisedAccentButton}" />
         <Button
@@ -131,7 +132,7 @@
             x:Name="button_Copy"
             Width="123"
             Height="30"
-            Margin="627,220,0,0"
+            Margin="627,229,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Command="{Binding LoadNewSanctioningCommand}"
