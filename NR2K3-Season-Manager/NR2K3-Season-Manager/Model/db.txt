@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server Compact Edition
 -- --------------------------------------------------
--- Date Created: 06/02/2019 17:48:47
+-- Date Created: 06/02/2019 17:43:17
 -- Generated from EDMX file: C:\Users\wesle\Documents\GitHub\NR2K3-Season-Manager\NR2K3-Season-Manager\NR2K3-Season-Manager\Model\SeriesDataModel.edmx
 -- --------------------------------------------------
 
@@ -20,7 +20,7 @@ GO
 GO
     ALTER TABLE [Races] DROP CONSTRAINT [FK_RaceSeason];
 GO
-    ALTER TABLE [WeekendResults] DROP CONSTRAINT [FK_WeekendResultRace];
+    ALTER TABLE [WeekendResults] DROP CONSTRAINT [FK_WeekendResultRace];a
 GO
     ALTER TABLE [WeekendResults] DROP CONSTRAINT [FK_WeekendResultQualifyingResult];
 GO

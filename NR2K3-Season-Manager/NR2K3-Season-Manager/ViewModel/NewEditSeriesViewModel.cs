@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight.CommandWpf;
 using System.Windows.Controls;
+using NR2K3_Season_Manager.Model;
+using NR2K3_Season_Manager.Data;
 
 namespace NR2K3_Season_Manager.ViewModel
 {
@@ -27,7 +29,6 @@ namespace NR2K3_Season_Manager.ViewModel
         public RelayCommand LoadNewSanctioningCommand { get; private set; }
         public RelayCommand NR2K3RootCommand { get; private set; }
         public RelayCommand CancelCommand { get; private set; }
-
         public RelayCommand CreateCommand { get; private set; }
         public string SeriesName
         {
@@ -191,23 +192,41 @@ namespace NR2K3_Season_Manager.ViewModel
             _navigationService.NavigateTo("LoadSeriesPage");
         }
 
-        public async void CreateCommandAction()
+        public void CreateCommandAction()
         {
             if (String.IsNullOrWhiteSpace(_seriesName) || String.IsNullOrWhiteSpace(_seriesShort) || String.IsNullOrWhiteSpace(_sanctioningBody))
             {
-                var dialogContent = new TextBlock
-                {
-                    Text = "Please enter all required inputs!",
-                    Margin = new System.Windows.Thickness(20)
-                };
-                await MaterialDesignThemes.Wpf.DialogHost.Show(dialogContent);
+                ShowDialog("Please enter all required inputs!");
             } else
             {
+                Series temp = new Series
+                {
+                    SeriesName = SeriesName,
+                    SeriesShort = SeriesShort,
+                    SeriesLogo = SeriesLogo,
+                    SanctioningLogo = SanctioningLogo,
+                };
+                try
+                {
+                    SeriesQueries.CreateSeries(temp);
+                } catch (ArgumentException e)
+                {
+                    ShowDialog(e.Message);
+                }
                 Clear();
             }
 
         }
 
+        private async void ShowDialog (string message)
+        {
+            var dialogContent = new TextBlock
+            {
+                Text = message,
+                Margin = new System.Windows.Thickness(20)
+            };
+            await MaterialDesignThemes.Wpf.DialogHost.Show(dialogContent);
+        }
         private void Clear()
         {
             SeriesName = null;
