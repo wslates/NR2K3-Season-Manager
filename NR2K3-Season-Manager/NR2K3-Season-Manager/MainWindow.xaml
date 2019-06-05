@@ -67,7 +67,7 @@
                 </materialDesign:ColorZone>
                 <Frame
                     x:Name="currentDisplay"
-                    Margin="0,56,0,0"
+                    Margin="0,69,0,0"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
                     NavigationUIVisibility="Hidden" />
