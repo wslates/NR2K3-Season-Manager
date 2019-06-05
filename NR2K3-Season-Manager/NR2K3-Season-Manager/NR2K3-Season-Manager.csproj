@@ -188,6 +188,7 @@
     <Compile Include="ViewModel\LoadSeriesPageViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NewEditSeriesViewModel.cs" />
+    <Compile Include="ViewModel\SelectableViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Views\LoadSeriesPage.xaml.cs">
       <DependentUpon>LoadSeriesPage.xaml</DependentUpon>

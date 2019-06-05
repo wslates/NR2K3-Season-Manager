@@ -34,5 +34,10 @@ namespace NR2K3_Season_Manager.Data
                 throw new NotImplementedException(); 
             }
         }
+
+        public static IEnumerable<Series> GetSeries()
+        {
+            return _context.Series;
+        }
     }
 }
