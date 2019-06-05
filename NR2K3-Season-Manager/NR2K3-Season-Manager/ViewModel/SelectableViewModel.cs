@@ -10,7 +10,6 @@ namespace NR2K3_Season_Manager.ViewModel
         private string _description;
         private char _code;
         private double _numeric;
-        private string _food;
 
         public bool IsSelected
         {
@@ -67,23 +66,11 @@ namespace NR2K3_Season_Manager.ViewModel
             }
         }
 
-        public string Food
-        {
-            get { return _food; }
-            set
-            {
-                if (_food == value) return;
-                _food = value;
-                OnPropertyChanged();
-            }
-        }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

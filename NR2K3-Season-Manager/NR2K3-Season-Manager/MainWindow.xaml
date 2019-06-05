@@ -29,23 +29,49 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <materialDesign:DialogHost CloseOnClickAway="True">
-        <Grid x:Name="LayoutRoot">
-            <materialDesign:ColorZone Padding="16" Mode="Accent">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock
-                        Margin="16,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="20">
-                        NR2003 Season Manager
-                    </TextBlock>
-                </StackPanel>
-            </materialDesign:ColorZone>
-            <Frame
-                x:Name="currentDisplay"
-                Margin="0,56,0,0"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                NavigationUIVisibility="Hidden" />
-        </Grid>
+        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
+            <materialDesign:DrawerHost.LeftDrawerContent>
+                <DockPanel MinWidth="212">
+                    <ToggleButton
+                        Margin="16"
+                        HorizontalAlignment="Right"
+                        DockPanel.Dock="Top"
+                        IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}"
+                        Style="{StaticResource MaterialDesignHamburgerToggleButton}" />
+                    <ListBox
+                        x:Name="DemoItemsListBox"
+                        Margin="0,16,0,16"
+                        SelectedIndex="0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="domain:DemoItem">
+                                <TextBlock Margin="32,0,32,0" Text="{Binding Name}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </DockPanel>
+            </materialDesign:DrawerHost.LeftDrawerContent>
+            <Grid x:Name="LayoutRoot">
+                <materialDesign:ColorZone Padding="16" Mode="Accent">
+                    <StackPanel Orientation="Horizontal">
+                        <ToggleButton
+                            x:Name="MenuToggleButton"
+                            IsChecked="False"
+                            Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
+                        <TextBlock
+                            Margin="16,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="20">
+                            NR2003 Season Manager
+                        </TextBlock>
+                    </StackPanel>
+                </materialDesign:ColorZone>
+                <Frame
+                    x:Name="currentDisplay"
+                    Margin="0,69,0,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    NavigationUIVisibility="Hidden" />
+            </Grid>
+        </materialDesign:DrawerHost>
     </materialDesign:DialogHost>
 </Window>

@@ -22,12 +22,11 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <DockPanel Width="auto">
+            <DockPanel>
                 <TextBlock
                     Margin="10,10"
                     DockPanel.Dock="Left"
-                    RenderTransformOrigin="0.523,0.699"
-                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"><Run Text="Current Series" />
+                    Style="{StaticResource MaterialDesignHeadlineTextBlock}" Width="auto"><Run Text="Current Series" />
                 </TextBlock>
                 <Button
                     Width="50"
